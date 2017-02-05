@@ -12,22 +12,15 @@
 </head>
 <body>
 <h1>News information</h1>
-
-<table class="tg">
-    <tr>
-        <th width="80">ID</th>
-        <th width="120">Title</th>
-        <th width="120">Category</th>
-        <th width="360">Text</th>
-        <th width="120">createDate</th>
-    </tr>
-    <tr>
-        <td>${news.id}</td>
-        <td>${news.title}</td>
-        <td>${news.category}</td>
-        <td>${news.text}</td>
-        <td>${news.createDate}</td>
-    </tr>
-</table>
+<hr />
+<section class="news_title">
+    <h1><a href="/newsinfo/${news.id}" target="_blank">${news.title}</a></h1>
+    <b>${news.category}</b>
+    <br/>
+    <i>${news.createDate}</i>
+    <article class="news_text">
+        ${news.text}
+    </article>
+</section>
 </body>
 </html>

@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -108,7 +107,10 @@ public class NewsDaoImpl implements NewsDao{
     @SuppressWarnings("unchecked")
     public List<String> getListCategorys() {
         Session session = this.sessionFactory.getCurrentSession();
+        List<String> categorysList = session.createQuery("select category from News").list();
 
-        return session.createQuery("select category from News").list();
+        categorysList = categorysList.stream().distinct().collect(Collectors.toList());
+
+        return categorysList;
     }
 }
