@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -60,6 +61,7 @@ public class NewsDaoImpl implements NewsDao{
         List<News> newsList = session.createQuery("from News").list();
 
         newsList.stream().forEach(news->logger.info("News list: " + news));
+        Collections.reverse(newsList);
 
         return newsList;
     }
